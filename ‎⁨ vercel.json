@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://wa.me/9647710011031",
-      "permanent": true
-    }
-  ]
-}
