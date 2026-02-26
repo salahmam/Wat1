@@ -3,117 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استشارة مجانية - الدكتور تحسين البرواري</title>
+    <title>الاستشارة المجانية - د. تحسين البرواري</title>
 
-    <meta http-equiv="refresh" content="2; url=https://wa.me/9647710011031">
-    
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'رقم_بكسل_فيسبوك'); 
+      fbq('track', 'PageView');
+      fbq('track', 'Contact');
+    </script>
+
+    <script>
+      !function (w, d, t) {
+        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n;var o=d.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+        ttq.load('رقم_بكسل_تيك_توك');
+        ttq.page();
+        ttq.track('Contact');
+      }(window, document, 'ttq');
+    </script>
+
     <style>
-        :root {
-            --primary-color: #25D366; /* لون الواتساب */
-            --doctor-color: #0056b3; /* لون طبي رسمي */
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 350px;
-            width: 90%;
-            animation: fadeIn 0.8s ease-out;
-        }
-        .doctor-avatar {
-            width: 100px;
-            height: 100px;
-            background-color: var(--doctor-color);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 40px;
-            border: 4px solid #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        h2 { color: #333; margin: 10px 0; font-size: 1.4rem; }
-        p { color: #666; font-size: 0.95rem; line-height: 1.6; }
-        
-        .whatsapp-btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
-            background-color: #1ebe57;
-        }
-
-        /* أنيميشن الدخول */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* أنيميشن نبض الزر */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        .loader {
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 10px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        :root { --primary-color: #25D366; --doctor-color: #0056b3; }
+        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+        .card { background: white; padding: 40px 20px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 90%; animation: slideUp 0.6s ease; }
+        .doctor-icon { font-size: 50px; margin-bottom: 15px; }
+        h2 { color: #222; margin: 10px 0; font-size: 1.5rem; }
+        p { color: #555; line-height: 1.6; margin-bottom: 25px; }
+        .btn { display: block; background: var(--primary-color); color: white; padding: 18px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); animation: pulse 2s infinite; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="doctor-avatar">👨‍⚕️</div>
+    <div class="doctor-icon">👨‍⚕️</div>
     <h2>د. تحسين البرواري</h2>
-    <p>أهلاً بك.. لتقديم الاستشارة المجانية، يمكنك التواصل مباشرة مع الدكتور أو المساعد عبر الواتساب.</p>
+    <p>أهلاً بك.. جاري تحويلك الآن للحصول على استشارتك المجانية عبر الواتساب.</p>
     
-    <div style="margin-top: 15px;">
-        <span class="loader"></span>
-        <span style="color: #888; font-size: 0.8rem;">جاري التحويل تلقائياً...</span>
-    </div>
-
-    <a href="https://wa.me/9647710011031" class="whatsapp-btn">
+    <a href="https://wa.me/9647710011031?text=أهلاً دكتور تحسين، أود الاستفسار عن الاستشارة المجانية" id="waLink" class="btn">
         تحدث مع الدكتور الآن
     </a>
 </div>
+
+<script>
+    window.onload = function() {
+        var phone = "9647710011031";
+        var message = encodeURIComponent("أهلاً دكتور تحسين، أود الاستفسار عن الاستشارة المجانية");
+        
+        // المحاولة الأولى: رابط البروتوكول المباشر (تجاوز المتصفح)
+        var fastUrl = "whatsapp://send?phone=" + phone + "&text=" + message;
+        // المحاولة الثانية: رابط الويب الرسمي (خطة بديلة)
+        var webUrl = "https://wa.me/" + phone + "?text=" + message;
+
+        // تنفيذ التحويل بعد ثانيتين لضمان عمل البكسل
+        setTimeout(function() {
+            window.location.href = fastUrl;
+            
+            // تأكيد إضافي في حال لم يستجب الجوال للرابط الأول
+            setTimeout(function() {
+                window.location.href = webUrl;
+            }, 1000);
+        }, 2000);
+    };
+</script>
 
 </body>
 </html>
