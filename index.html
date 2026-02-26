@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="refresh" content="0; url=https://wa.me/9647710011031">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جاري التحويل...</title>
+
+    <meta http-equiv="refresh" content="2; url=https://wa.me/9647710011031">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+        .loader-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .whatsapp-icon {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        .loading-text {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .sub-text {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        /* أنيميشن بسيط للنقاط */
+        .dots:after {
+            content: '.';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+    </style>
 </head>
 <body>
-    <p>جاري تحويلك إلى واتساب...</p>
+
+<div class="loader-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+    
+    <div class="loading-text">جاري تحويلك للمحادثة المباشرة<span class="dots"></span></div>
+    <p class="sub-text">لحظات وسنكون معك..</p>
+</div>
+
 </body>
 </html>
-
