@@ -3,49 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>د. تحسين البرواري</title>
+    <title>استشارة مجانية - الدكتور تحسين البرواري</title>
 
-    <meta http-equiv="refresh" content="2; url=https://wa.me/9647710011031?text=أهلاً دكتور تحسين، أود الاستفسار عن الاستشارة المجانية">
+    <meta http-equiv="refresh" content="4; url=https://wa.me/9647710011031">
     
     <style>
+        :root {
+            --primary-color: #25D366; /* لون الواتساب */
+            --doctor-color: #0056b3; /* لون طبي رسمي */
+        }
         body {
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f7f6;
-            font-family: sans-serif;
-            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .container {
-            padding: 20px;
+        .card {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 85%;
-            max-width: 400px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-out;
         }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 30px;
-            background-color: #25D366;
+        .doctor-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--doctor-color);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
-            text-decoration: none;
+            font-size: 40px;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h2 { color: #333; margin: 10px 0; font-size: 1.4rem; }
+        p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
             border-radius: 50px;
+            text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(37,211,102,0.3);
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background-color: #1ebe57;
+        }
+
+        /* أنيميشن الدخول */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* أنيميشن نبض الزر */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2 style="color: #0056b3;">د. تحسين البرواري</h2>
-    <p>جاري تحويلك للمحادثة المباشرة لتقديم الاستشارة المجانية...</p>
+<div class="card">
+    <div class="doctor-avatar">👨‍⚕️</div>
+    <h2>د. تحسين البرواري</h2>
+    <p>أهلاً بك.. لتقديم الاستشارة المجانية، يمكنك التواصل مباشرة مع الدكتور أو المساعد عبر الواتساب.</p>
     
-    <a href="https://wa.me/9647710011031?text=أهلاً دكتور تحسين، أود الاستفسار عن الاستشارة المجانية" class="btn">
+    <div style="margin-top: 15px;">
+        <span class="loader"></span>
+        <span style="color: #888; font-size: 0.8rem;">جاري التحويل تلقائياً...</span>
+    </div>
+
+    <a href="https://wa.me/9647710011031" class="whatsapp-btn">
         تحدث مع الدكتور الآن
     </a>
 </div>
