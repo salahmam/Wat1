@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>استشارة مجانية - الدكتور تحسين البرواري</title>
+    <title>استشارة الدكتور تحسين البرواري</title>
 
     <script>
-      !function (w, d, t) {
-        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n;var o=d.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
-        ttq.load('D6A1NLRC77UA1UK9FP60');
-        ttq.page();
-        ttq.track('Contact');
-      }(window, document, 'ttq');
-    </script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    <meta http-equiv="refresh" content="2; url=https://wa.me/9647710011031?text=أهلاً دكتور تحسين، أود الحصول على استشارة مجانية">
+      ttq.load('D6GU2OBC77U4B725MMQG'); // المعرف الجديد من صورتك الأخيرة
+      ttq.page();
+      ttq.track('Contact'); // تتبع الضغط والتواصل
+    }(window, document, 'ttq');
+    </script>
+    <meta http-equiv="refresh" content="2.5; url=https://wa.me/9647710011031?text=أهلاً دكتور تحسين، أود الحصول على استشارة مجانية">
     
     <style>
-        :root {
-            --primary-color: #25D366;
-            --doctor-color: #0056b3;
-        }
         body {
             margin: 0;
             padding: 0;
@@ -28,94 +26,80 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f9;
+            font-family: 'Arial', sans-serif;
         }
-        /* تكبير البطاقة */
-        .card {
+        .main-card {
             background: white;
-            padding: 50px 30px; /* زيادة التباعد الداخلي */
-            border-radius: 30px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            padding: 70px 50px; /* حجم ضخم للبطاقة */
+            border-radius: 45px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 420px; /* زيادة عرض البطاقة */
-            width: 92%;
-            animation: fadeIn 0.8s ease-out;
+            width: 90%;
+            max-width: 550px;
         }
-        .doctor-avatar {
-            width: 120px; /* تكبير الصورة */
-            height: 120px;
-            background-color: var(--doctor-color);
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 50px;
-            border: 5px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        .doctor-emoji {
+            font-size: 100px; /* أيقونة كبيرة جداً */
+            margin-bottom: 25px;
         }
-        h2 { color: #222; margin: 15px 0; font-size: 1.8rem; } /* تكبير الاسم */
-        p { color: #555; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; } /* تكبير النص الوصفي */
-        
-        /* تكبير نص جاري التحويل */
-        .loading-text {
-            color: #666;
-            font-size: 1.2rem; /* تكبير الخط */
-            font-weight: 600;
+        h1 {
+            font-size: 2.5rem; /* اسم الدكتور واضح جداً */
+            color: #111;
             margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.4rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 45px;
+        }
+        .loading-section {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 20px;
+            margin-bottom: 40px;
         }
-
-        .whatsapp-btn {
-            display: block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px 30px; /* تكبير الزر */
-            border-radius: 50px;
-            text-decoration: none;
+        .loading-text {
+            font-size: 1.7rem; /* نص جاري التحويل ضخم */
             font-weight: bold;
-            font-size: 1.3rem; /* تكبير نص الزر */
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            animation: pulse 2s infinite;
+            color: #007bff;
         }
-
-        .loader {
-            width: 28px; /* تكبير دائرة التحميل */
-            height: 28px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--primary-color);
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 25px 50px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 1.8rem; /* زر واتساب كبير جداً */
+            font-weight: bold;
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #25D366;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <div class="doctor-avatar">👨‍⚕️</div>
-    <h2>د. تحسين البرواري</h2>
-    <p>أهلاً بك.. لتقديم الاستشارة المجانية، يتم الآن تحويلك للتحدث مباشرة مع الدكتور عبر الواتساب.</p>
+<div class="main-card">
+    <div class="doctor-emoji">👨‍⚕️</div>
+    <h1>د. تحسين البرواري</h1>
+    <p>أهلاً بك.. يتم الآن تحويلك للحصول على استشارة طبية مباشرة عبر الواتساب.</p>
     
-    <div class="loading-text">
-        <div class="loader"></div>
-        <span>جاري التحويل تلقائياً...</span>
+    <div class="loading-section">
+        <div class="spinner"></div>
+        <div class="loading-text">جاري التحويل تلقائياً...</div>
     </div>
 
-    <a href="https://wa.me/9647710011031?text= مرحبا دكتور ممكن استفسار عن علاج البواسير وشلون احجز " class="whatsapp-btn">
+    <a href="https://wa.me/9647710011031?text=أهلاً دكتور تحسين، أود الحصول على استشارة مجانية" class="whatsapp-btn">
         تحدث مع الدكتور الآن
     </a>
 </div>
