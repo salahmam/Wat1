@@ -10,83 +10,39 @@
       w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
     var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
     ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
       ttq.load('D6GU2OBC77U4B725MMQG'); 
       ttq.page();
       ttq.track('Contact'); 
     }(window, document, 'ttq');
     </script>
 
-    <meta http-equiv="refresh" content="2; url=https://wa.me/9647728171171?text=أهلاً دكتور مهند، اريد الاستفسار عن كريم البشرة. هل هو متوفر حالياً؟">
+    <script>
+        window.onload = function() {
+            var randomTime = Math.floor(Math.random() * (2500 - 1500 + 1)) + 1500;
+            setTimeout(function() {
+                window.location.href = "https://wa.me/9647728171171?text=" + encodeURIComponent("أهلاً دكتور مهند، اريد الاستفسار عن كريم البشرة. هل هو متوفر حالياً؟");
+            }, randomTime);
+        };
+    </script>
     
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #fff5f8; 
-            font-family: 'Arial', sans-serif;
-        }
-        .main-card {
-            background: white;
-            padding: 60px 40px;
-            border-radius: 40px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
-            border: 1px solid #ffe0eb;
-        }
-        .product-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.2rem;
-            color: #d63384; 
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 1.3rem;
-            color: #444;
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
-        .loading-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-        .loading-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #d63384;
-        }
-        .whatsapp-btn {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 22px 45px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-size: 1.6rem;
-            font-weight: bold;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-        }
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #d63384;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
+        body { margin: 0; padding: 20px 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; background: #fff5f8; font-family: 'Arial', sans-serif; }
+        .main-card { background: white; padding: 40px 30px; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); text-align: center; width: 90%; max-width: 450px; border: 1px solid #ffe0eb; z-index: 2; }
+        .product-icon { font-size: 60px; margin-bottom: 10px; }
+        h1 { font-size: 1.8rem; color: #d63384; margin-bottom: 10px; }
+        p { font-size: 1.1rem; color: #444; line-height: 1.5; margin-bottom: 25px; }
+        .loading-section { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 25px; }
+        .loading-text { font-size: 1.2rem; font-weight: bold; color: #d63384; }
+        .whatsapp-btn { display: inline-block; background: #25D366; color: white; padding: 18px 35px; border-radius: 50px; text-decoration: none; font-size: 1.4rem; font-weight: bold; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); }
+        .spinner { width: 35px; height: 35px; border: 4px solid #f3f3f3; border-top: 4px solid #d63384; border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ستايل التعليقات */
+        .reviews-container { width: 90%; max-width: 450px; margin-top: 30px; background: white; border-radius: 20px; padding: 20px; border: 1px solid #ffe0eb; max-height: 300px; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .review-item { font-size: 0.95rem; color: #555; padding: 12px 0; border-bottom: 1px solid #f9f9f9; line-height: 1.6; text-align: right; }
+        .review-item:last-child { border-bottom: none; }
+        .review-stars { color: #ffc107; font-size: 12px; margin-bottom: 5px; display: block; }
+        .reviews-title { font-weight: bold; color: #d63384; margin-bottom: 15px; text-align: center; font-size: 1.1rem; }
     </style>
 </head>
 <body>
@@ -95,15 +51,37 @@
     <div class="product-icon">✨</div>
     <h1>د. مهند الشمري</h1>
     <p>أهلاً بكِ.. يتم الآن تحويلكِ للاستفسار عن كريم البشرة عبر الواتساب.</p>
-    
     <div class="loading-section">
         <div class="spinner"></div>
         <div class="loading-text">جاري التحويل تلقائياً...</div>
     </div>
+    <a href="https://wa.me/9647728171171?text=أهلاً دكتور مهند، اريد الاستفسار عن كريم البشرة. هل هو متوفر حالياً؟" class="whatsapp-btn">تحدث مع الدكتور</a>
+</div>
 
-    <a href="https://wa.me/9647728171171?text=أهلاً دكتور مهند، اريد الاستفسار عن كريم البشرة. هل هو متوفر حالياً؟" class="whatsapp-btn">
-        اطلبي الآن عبر واتساب
-    </a>
+<div class="reviews-container">
+    <div class="reviews-title">آراء بعض زبائننا ⭐⭐⭐⭐⭐</div>
+    
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>بصراحة الكريم فاق كل توقعاتي ووجهي صار صافي والخطوط اللي كانت مضايقتني اختفت تماماً</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>استخدمت هواية منتجات غالية بس مثل مفعول هذا الكريم ما شفت وبشرتي صارت مشدودة ومنورة</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>عاشت إيدك دكتور مهند على هالاختراع اللي رجع لبشرتي الحيوية واللمعة بعد ما كانت باهتة وتعبانة</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>الفرق بين عندي من أول عشر أيام والكل يسألوني شنو مسوية بوجهج صايرة متغيرة وصافية</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>كنت أعاني من آثار الحبوب والتصبغات بس هذا الكريم صفا وجهي وصارت بشرتي قطعة وحدة وناعمة</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>تجربتي وياكم كانت ممتازة والتوصيل سريع والمنتج أصلي ونتيجته فعلاً تضاهي جلسات البوتوكس والفيلر</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>بشرتي حساسة جداً وما ناسبها غير هذا المنتج لأنه خفيف وما يسبب أي تهيج وبالعكس رطبها بعمق</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>أكثر شي عجبني إنه يشد البشرة ويصغر المسامات بشكل ملحوظ وصار جزء أساسي من روتيني اليومي</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>والله يا بنات الكريم سحر ويغنيكم عن الفاونديشن والمكياج لأن يخلي الوجه طبيعي ومشرق وموحد</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>المصداقية عندكم عالية جداً والمنتج يستاهل كل فلس يندفع بيه لأن نتيجته حقيقية وتدوم طويلاً</div>
+    
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>وجهي صار مثل المراية من النظافة والنضارة والكل لاحظ الفرق وصرت أنصح بي لكل قرايبي وصديقاتي</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>بعد التعب والسهر بشرتي كانت منتهية بس هالكريم رجع لها الحياة وصارت مرتوية وشكلها صحي جداً</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>كنت أفكر أسوي فيلر بس بعد ما استخدمت الكريم استغنيت تماماً لأن الشد والنضارة صاروا طبيعيين</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>علاج فعال جداً للمناطق التعبانة بالوجه ويحسسك بفرق من أول دهنة وريحته وقوامه كلش راقيين</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>شكراً دكتور على تعاملك الراقي وعلى هذا المنتج اللي فعلاً يحل مشاكل البشرة مو بس تجميل ظاهري</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>بشرتي صارت مثل الحرير والكل يسألني عن السر وصار هذا الكريم هو السر الوحيد لجمالي اليومي</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>النتيجة خيالية وما توقعت بهالسرعة يبين المفعول خصوصاً الخطوط الرفيعة بدت تروح وتختفي تدريجياً</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>أفضل اختيار سويته هو طلب هذا المنتج لأن بشرتي رجعت شباب وصارت مشدودة ومنورة بشكل مذهل</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>فعلاً بوتوكس وفيلر طبيعي وبدون إبر ولا ألم والنتيجة طلعت أحسن بهواية من اللي كنت أتمناه</div>
+    <div class="review-item"><span class="review-stars">⭐⭐⭐⭐⭐</span>ثقة ومصداقية وسرعة بالتنفيذ والمنتج يجي مغلف ومرتب وريحته تفتح النفس والنتيجة تبهر الكل</div>
 </div>
 
 </body>
