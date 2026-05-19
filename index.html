@@ -6,15 +6,16 @@
     <title>دعوة زفاف عبدالله و عائشة</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #947e60;
             --primary-light: #bca685;
             --accent: #d4af37;
-            --bg-cream: #fbf9f6;
+            --bg-cream: #fdfbf7;
             --text-dark: #3a3530;
-            --text-muted: #706961;
+            --text-muted: #6e655c;
+            --white: #ffffff;
         }
 
         * {
@@ -25,7 +26,8 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #1a1715;
+            background-color: #161412;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
             color: var(--text-dark);
             display: flex;
             justify-content: center;
@@ -34,18 +36,19 @@
             overflow-x: hidden;
         }
 
-        /* حاوية الهاتف الثابتة لتبدو كصفحة هبوط حقيقية */
-        .phone-wrapper {
+        /* حاوية الهاتف الذكي لمحاكاة صفحة هبوط حقيقية */
+        .phone-container {
             width: 100%;
-            max-width: 430px;
+            max-width: 425px;
             height: 100vh;
             background-color: var(--bg-cream);
+            background-image: url('https://www.transparenttextures.com/patterns/floral-paper.png');
             position: relative;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
             overflow: hidden;
         }
 
-        /* 1. شاشة الظرف (الغطاء) */
+        /* 1. شاشة الظرف الفاخرة */
         .envelope-screen {
             position: absolute;
             top: 0;
@@ -58,7 +61,7 @@
             justify-content: center;
             align-items: center;
             z-index: 10;
-            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.9s ease;
             padding: 20px;
         }
 
@@ -68,367 +71,422 @@
             pointer-events: none;
         }
 
-        /* رسم وتصميم غلاف الظرف برمجياً */
-        .envelope-wrapper {
+        /* مجسم الظرف العصري المزين */
+        .envelope-box {
             position: relative;
-            width: 280px;
-            height: 200px;
-            background: #f2ede4;
-            border-radius: 4px;
-            box-shadow: 0 10px 25px rgba(148, 126, 96, 0.15);
+            width: 290px;
+            height: 210px;
+            background: #f4eee5;
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(148, 126, 96, 0.2);
             margin-bottom: 40px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid #e5ded3;
+            border: 1px solid #e8dfd1;
             cursor: pointer;
         }
 
-        /* زينة الورود حول الظرف */
-        .envelope-flower-1 {
+        /* زينة الورود العلوية والسفلية للظرف */
+        .env-flower-top {
             position: absolute;
             top: -45px;
-            left: -40px;
-            font-size: 50px;
-            opacity: 0.85;
-            color: var(--primary-light);
+            left: -35px;
+            font-size: 55px;
+            opacity: 0.9;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
         }
 
-        .envelope-flower-2 {
+        .env-flower-bottom {
             position: absolute;
-            bottom: -35px;
-            right: -35px;
-            font-size: 45px;
-            opacity: 0.85;
-            color: var(--primary-light);
+            bottom: -40px;
+            right: -30px;
+            font-size: 50px;
+            opacity: 0.9;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
         }
 
-        /* الختم الشمعي الدائري التفاعلي */
+        /* الختم الشمعي الفخم مع خطوط دائرية وأيقونة غصن */
         .wax-seal {
-            width: 65px;
-            height: 65px;
-            background: radial-gradient(circle, #dfcbb5 0%, #b39b7d 100%);
+            width: 75px;
+            height: 75px;
+            background: radial-gradient(circle, #e5d5c3 0%, #b89e7e 100%);
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(90, 74, 53, 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
+            box-shadow: 0 6px 15px rgba(90, 74, 53, 0.35), inset 0 2px 4px rgba(255,255,255,0.3);
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            border: 2px solid #a38b6d;
-            animation: pulse 2s infinite;
+            border: 3px solid #ab9272;
+            animation: sealPulse 2s infinite ease-in-out;
         }
 
-        .wax-seal::after {
-            content: '🌸';
-            font-size: 24px;
-            color: #fff;
-            opacity: 0.9;
+        .wax-seal svg {
+            opacity: 0.95;
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
         }
 
-        .open-btn {
+        .open-button {
             background-color: var(--primary);
-            color: white;
+            color: var(--white);
             border: none;
-            padding: 12px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            padding: 14px 40px;
+            font-size: 1.15rem;
+            font-weight: 600;
             border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(148, 126, 96, 0.3);
+            box-shadow: 0 6px 20px rgba(148, 126, 96, 0.35);
             transition: all 0.3s ease;
             font-family: 'Cairo', sans-serif;
+            letter-spacing: 0.5px;
         }
 
-        .open-btn:hover {
+        .open-button:hover {
             background-color: #7d694e;
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(148, 126, 96, 0.45);
         }
 
-        /* 2. محتوى الدعوة الرئيسي الداخلي */
-        .main-content {
+        /* 2. شاشة محتوى الدعوة الرئيسي الداخلي */
+        .main-invitation-content {
             width: 100%;
             height: 100%;
             overflow-y: auto;
-            padding: 30px 24px;
+            padding: 25px 20px;
             position: relative;
-            background-color: var(--bg-cream);
             scrollbar-width: none;
         }
 
-        .main-content::-webkit-scrollbar {
+        .main-invitation-content::-webkit-scrollbar {
             display: none;
         }
 
-        /* الورود العصرية بالخلفية */
-        .bg-flower-top {
+        /* زوايا زخرفية من الورد لتعطي طابع الفخامة */
+        .decor-flower-1 {
             position: absolute;
-            top: -20px;
-            right: -30px;
+            top: -15px;
+            right: -25px;
             font-size: 110px;
-            color: #f3ece2;
+            color: #f1e7d8;
             z-index: 1;
             pointer-events: none;
+            opacity: 0.7;
         }
 
-        .bg-flower-bottom {
+        .decor-flower-2 {
             position: absolute;
             bottom: -30px;
-            left: -40px;
+            left: -35px;
             font-size: 130px;
-            color: #f3ece2;
+            color: #f1e7d8;
             z-index: 1;
             pointer-events: none;
+            opacity: 0.7;
         }
 
-        .inner-card {
+        .card-frame {
             position: relative;
             z-index: 2;
-            border: 1px solid rgba(148, 126, 96, 0.25);
-            border-radius: 16px;
-            padding: 25px 15px;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(148, 126, 96, 0.3);
+            border-radius: 18px;
+            padding: 30px 16px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(6px);
             text-align: center;
+            box-shadow: inset 0 0 20px rgba(148, 126, 96, 0.03);
         }
 
-        .inner-card::before {
+        .card-frame::before {
             content: '';
             position: absolute;
             top: 6px; bottom: 6px; left: 6px; right: 6px;
             border: 1px solid rgba(148, 126, 96, 0.15);
-            border-radius: 12px;
+            border-radius: 14px;
             pointer-events: none;
         }
 
-        .floral-divider {
-            font-size: 1.5rem;
+        .main-icon-divider {
             color: var(--primary-light);
-            margin: 10px 0;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
 
-        h2.title {
+        h2.page-header {
             font-family: 'Amiri', serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: var(--primary);
+            font-weight: 700;
             margin-bottom: 15px;
         }
 
-        .quran-verse {
+        .holy-verse {
             font-family: 'Amiri', serif;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
             line-height: 1.6;
-            margin: 15px 0 25px 0;
+            margin-bottom: 25px;
+            padding: 0 5px;
+            font-style: italic;
         }
 
-        .names-container {
-            margin: 25px 0;
-        }
-
-        .names {
+        .elegant-phrase {
             font-family: 'Amiri', serif;
-            font-size: 2.5rem;
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin: 20px 0;
+            font-weight: 400;
+        }
+
+        .couple-names-box {
+            margin: 25px 0;
+            padding: 10px 0;
+        }
+
+        .groom-bride-names {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
             font-weight: 700;
             color: var(--primary);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-            margin: 10px 0;
+            text-shadow: 1px 2px 3px rgba(148, 126, 96, 0.15);
+            line-height: 1.2;
         }
 
-        .details-grid {
-            background-color: #f4eee5;
-            border-radius: 12px;
-            padding: 20px 15px;
-            margin: 25px 0;
-            border: 1px solid rgba(148, 126, 96, 0.15);
+        .event-details-card {
+            background-color: #f7f3eb;
+            border-radius: 14px;
+            padding: 22px 18px;
+            margin: 30px 0;
+            border: 1px solid rgba(148, 126, 96, 0.18);
+            text-align: right;
         }
 
-        .detail-item {
-            margin-bottom: 12px;
+        .detail-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
             font-size: 1.05rem;
+            color: var(--text-dark);
         }
 
-        .detail-item:last-child {
+        .detail-row:last-child {
             margin-bottom: 0;
         }
 
-        .highlight-text {
-            color: var(--primary);
-            font-weight: 700;
+        .detail-icon {
+            font-size: 1.3rem;
+            margin-left: 12px;
+            width: 25px;
+            text-align: center;
         }
 
-        /* العداد التنازلي المودرن */
-        .countdown-section {
+        .label-bold {
+            color: var(--primary);
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        /* العداد التنازلي العصري الرقمي */
+        .countdown-wrap {
             margin: 30px 0;
         }
 
-        .countdown-title {
+        .countdown-header {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .countdown-container {
+        .countdown-boxes-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .countdown-box {
-            background: white;
-            border: 1px solid rgba(148, 126, 96, 0.2);
-            border-radius: 10px;
-            width: 68px;
-            padding: 10px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        .time-counter-box {
+            background: var(--white);
+            border: 1px solid rgba(148, 126, 96, 0.22);
+            border-radius: 12px;
+            width: 72px;
+            padding: 12px 0;
+            box-shadow: 0 4px 12px rgba(148, 126, 96, 0.04);
         }
 
-        .time-num {
+        .digit-style {
             display: block;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
         }
 
-        .time-label {
+        .label-style {
             display: block;
             font-size: 0.75rem;
             color: var(--text-muted);
-            margin-top: 2px;
+            margin-top: 3px;
+            font-weight: 600;
         }
 
-        /* زر الخريطة العصري */
-        .map-button {
+        /* زر موقع المزرعة الفاخر المتجاوب */
+        .btn-location-map {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background-color: var(--primary);
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            padding: 14px 30px;
+            padding: 15px 30px;
             border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(148, 126, 96, 0.3);
-            margin-top: 10px;
+            box-shadow: 0 6px 20px rgba(148, 126, 96, 0.3);
+            margin-top: 15px;
             width: 100%;
         }
 
-        .map-button:hover {
+        .btn-location-map:hover {
             background-color: #7d694e;
-            box-shadow: 0 7px 20px rgba(148, 126, 96, 0.4);
+            box-shadow: 0 8px 25px rgba(148, 126, 96, 0.4);
+            transform: translateY(-1px);
         }
 
-        .map-button svg {
-            margin-left: 8px;
+        .btn-location-map svg {
+            margin-left: 10px;
             fill: currentColor;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* أنماط الحركات الأنيقة */
+        @keyframes sealPulse {
+            0% { transform: scale(1); box-shadow: 0 6px 15px rgba(90, 74, 53, 0.35); }
+            50% { transform: scale(1.04); box-shadow: 0 8px 20px rgba(90, 74, 53, 0.45); }
+            100% { transform: scale(1); box-shadow: 0 6px 15px rgba(90, 74, 53, 0.35); }
         }
     </style>
 </head>
 <body>
 
-    <div class="phone-wrapper">
+    <div class="phone-container">
         
         <div class="envelope-screen" id="envelopeScreen">
-            <div class="envelope-wrapper" onclick="openInvitation()">
-                <div class="envelope-flower-1">🌸</div>
-                <div class="wax-seal"></div>
-                <div class="envelope-flower-2">🌺</div>
+            <div class="envelope-box" onclick="unveilInvitation()">
+                <div class="env-flower-top">🌸</div>
+                <div class="wax-seal">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        <path d="M12 18c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6z" stroke-dasharray="2 2"/>
+                        <path d="M8 14s1.5-2 4-2 4 2 4 2M12 12V9" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="env-flower-bottom">🌺</div>
             </div>
-            <button class="open-btn" onclick="openInvitation()">انقر هنا لفتح الدعوة</button>
+            <button class="open-button" onclick="unveilInvitation()">انقر هنا لفتح الدعوة</button>
         </div>
 
-        <div class="main-content">
-            <div class="bg-flower-top">🌸</div>
-            <div class="bg-flower-bottom">🌺</div>
+        <div class="main-invitation-content">
+            <div class="decor-flower-1">🌸</div>
+            <div class="decor-flower-2">🌺</div>
 
-            <div class="inner-card">
-                <div class="floral-divider">🌸 ⚜️ 🌸</div>
-                <h2 class="title">دعوة زفاف مبهجة</h2>
+            <div class="card-frame">
+                <div class="main-icon-divider">🌸 ⚜️ 🌸</div>
+                <h2 class="page-header">دعوة زفاف غالية</h2>
                 
-                <p class="quran-verse">
-                    "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
+                <p class="holy-verse">
+                    "وَمِنْ آيَاتِهِ أَنْ خَلَقَ Lَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا Lِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
                 </p>
 
-                <div class="names-container">
-                    <p style="color: var(--text-muted); font-size: 1.05rem;">بكل حب وبهجة، نتشرف بدعوتكم لحضور حفل زفاف</p>
-                    <div class="names">عبدالله & عائشة</div>
+                <p class="elegant-phrase">
+                    لأن فرحتنا لا تكتمل إلا بوجود من نحب، يسعدنا أن تشاركونا لحظة الإعلان عن بداية رحلتنا معاً. حضوركم الأنيق يضفي على ليلتنا بهجة لا تنسى.
+                </p>
+
+                <div class="couple-names-box">
+                    <div class="groom-bride-names">عبدالله & عائشة</div>
                 </div>
 
-                <div class="details-grid">
-                    <div class="detail-item">🗓️ <span class="highlight-text">التاريخ:</span> الجمعة، 22 مايو 2026 م</div>
-                    <div class="detail-item">🕒 <span class="highlight-text">الوقت:</span> الساعة 3:00 ظهراً</div>
-                    <div class="detail-item">📍 <span class="highlight-text">الموقع:</span> مزرعة اورنج</div>
+                <div class="event-details-card">
+                    <div class="detail-row">
+                        <span class="detail-icon">🗓️</span>
+                        <div><span class="label-bold">التاريخ:</span> الجمعة، 22 مايو 2026 م</div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">🕒</span>
+                        <div><span class="label-bold">الوقت:</span> تمام الساعة 3:00 ظهراً</div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <div><span class="label-bold">الموقع:</span> مزرعة اورنج</div>
+                    </div>
                 </div>
 
-                <div class="countdown-section">
-                    <div class="countdown-title">الوقت المتبقي على الليلة المنتظرة:</div>
-                    <div class="countdown-container">
-                        <div class="countdown-box">
-                            <span class="time-num" id="days">00</span>
-                            <span class="time-label">أيام</span>
+                <div class="countdown-wrap">
+                    <div class="countdown-header">الوقت المتبقي على ليلة العمر المنتظرة:</div>
+                    <div class="countdown-boxes-container">
+                        <div class="time-counter-box">
+                            <span class="digit-style" id="daysBox">00</span>
+                            <span class="label-style">أيام</span>
                         </div>
-                        <div class="countdown-box">
-                            <span class="time-num" id="hours">00</span>
-                            <span class="time-label">ساعة</span>
+                        <div class="time-counter-box">
+                            <span class="digit-style" id="hoursBox">00</span>
+                            <span class="label-style">ساعة</span>
                         </div>
-                        <div class="countdown-box">
-                            <span class="time-num" id="minutes">00</span>
-                            <span class="time-label">دقيقة</span>
+                        <div class="time-counter-box">
+                            <span class="digit-style" id="minsBox">00</span>
+                            <span class="label-style">دقيقة</span>
                         </div>
-                        <div class="countdown-box">
-                            <span class="time-num" id="seconds">00</span>
-                            <span class="time-label">ثانية</span>
+                        <div class="time-counter-box">
+                            <span class="digit-style" id="secsBox">00</span>
+                            <span class="label-style">ثانية</span>
                         </div>
                     </div>
                 </div>
 
-                <a href="https://maps.app.goo.gl/DP1GcG593mm2YLJH8?g_st=ic" target="_blank" class="map-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24">
+                <a href="https://maps.app.goo.gl/DP1GcG593mm2YLJH8?g_st=ic" target="_blank" class="btn-location-map">
+                    <svg width="22" height="22" viewBox="0 0 24 24">
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    عرض موقع القاعة (مزرعة اورنج)
+                    عرض موقع الحفل (مزرعة اورنج)
                 </a>
 
-                <div class="floral-divider" style="margin-top: 25px;">🌸</div>
+                <div class="main-icon-divider" style="margin-top: 30px;">🌸</div>
             </div>
         </div>
 
     </div>
 
     <script>
-        // تأثير حركة فتح الظرف بسلاسة
-        function openInvitation() {
+        // دالة تحريك وفتح الظرف بسلاسة فائقة عند الضغط
+        function unveilInvitation() {
             document.getElementById('envelopeScreen').classList.add('opened');
         }
 
-        // إعداد العداد التنازلي لـ تاريخ 22 مايو 2026 الساعة 3:00 عصراً (15:00)
-        const weddingDate = new Date("May 22, 2026 15:00:00").getTime();
+        // إعداد توقيت العداد التنازلي الحقيقي لـ تاريخ 22 مايو 2026 الساعة 3:00 ظهراً
+        const eventTargetTime = new Date("May 22, 2026 15:00:00").getTime();
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
+        const countdownInterval = setInterval(function() {
+            const currentTime = new Date().getTime();
+            const timeDifference = eventTargetTime - currentTime;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // حسابات الفترات الزمنية
+            const remainingDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const remainingHours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const remainingMinutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const remainingSeconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            // طباعة القيم داخل الصناديق مع إضافة صفر إذا كانت القيمة مفردة
+            document.getElementById("daysBox").innerText = remainingDays < 10 ? "0" + remainingDays : remainingDays;
+            document.getElementById("hoursBox").innerText = remainingHours < 10 ? "0" + remainingHours : remainingHours;
+            document.getElementById("minsBox").innerText = remainingMinutes < 10 ? "0" + remainingMinutes : remainingMinutes;
+            document.getElementById("secsBox").innerText = remainingSeconds < 10 ? "0" + remainingSeconds : remainingSeconds;
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.querySelector(".countdown-title").innerText = "حان وقت الفرح! بارك الله لهما";
-                document.querySelector(".countdown-container").style.display = "none";
+            // عند انتهاء العداد التنازلي ووصول موعد الحفل
+            if (timeDifference < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-header").innerText = "دام الله سروركم! بارك الله لهما وبارك عليهما";
+                document.querySelector(".countdown-boxes-container").style.display = "none";
             }
         }, 1000);
     </script>
