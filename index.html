@@ -6,248 +6,425 @@
     <title>دعوة زفاف عبدالله و عائشة</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #8a7355;
-            --secondary-color: #dfd5c6;
-            --text-color: #333333;
-            --bg-color: #fcfbfa;
+            --primary: #947e60;
+            --primary-light: #bca685;
+            --accent: #d4af37;
+            --bg-cream: #fbf9f6;
+            --text-dark: #3a3530;
+            --text-muted: #706961;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            background-color: #1a1715;
+            color: var(--text-dark);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .card-container {
-            background: #ffffff;
-            max-width: 450px;
-            width: 90%;
-            margin: 20px auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 3px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
-            border: 1px solid var(--secondary-color);
-            overflow: hidden;
-            text-align: center;
-            padding: 30px 20px;
+        /* حاوية الهاتف الثابتة لتبدو كصفحة هبوط حقيقية */
+        .phone-wrapper {
+            width: 100%;
+            max-width: 430px;
+            height: 100vh;
+            background-color: var(--bg-cream);
             position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            overflow: hidden;
         }
 
-        /* إطار زخرفي خفيف */
-        .card-container::before {
-            content: '';
+        /* 1. شاشة الظرف (الغطاء) */
+        .envelope-screen {
             position: absolute;
-            top: 10px; bottom: 10px; left: 10px; right: 10px;
-            border: 1px solid rgba(138, 115, 85, 0.3);
-            border-radius: 15px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-cream);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+            padding: 20px;
+        }
+
+        .envelope-screen.opened {
+            transform: translateY(-100%);
+            opacity: 0;
             pointer-events: none;
         }
 
-        h1.main-title {
-            font-family: 'Reem Kufi', serif;
-            color: var(--primary-color);
-            font-size: 2.2rem;
-            margin-bottom: 5px;
+        /* رسم وتصميم غلاف الظرف برمجياً */
+        .envelope-wrapper {
+            position: relative;
+            width: 280px;
+            height: 200px;
+            background: #f2ede4;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(148, 126, 96, 0.15);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #e5ded3;
+            cursor: pointer;
+        }
+
+        /* زينة الورود حول الظرف */
+        .envelope-flower-1 {
+            position: absolute;
+            top: -45px;
+            left: -40px;
+            font-size: 50px;
+            opacity: 0.85;
+            color: var(--primary-light);
+        }
+
+        .envelope-flower-2 {
+            position: absolute;
+            bottom: -35px;
+            right: -35px;
+            font-size: 45px;
+            opacity: 0.85;
+            color: var(--primary-light);
+        }
+
+        /* الختم الشمعي الدائري التفاعلي */
+        .wax-seal {
+            width: 65px;
+            height: 65px;
+            background: radial-gradient(circle, #dfcbb5 0%, #b39b7d 100%);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(90, 74, 53, 0.3), inset 0 2px 4px rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: 2px solid #a38b6d;
+            animation: pulse 2s infinite;
+        }
+
+        .wax-seal::after {
+            content: '🌸';
+            font-size: 24px;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .open-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(148, 126, 96, 0.3);
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .open-btn:hover {
+            background-color: #7d694e;
+            transform: translateY(-2px);
+        }
+
+        /* 2. محتوى الدعوة الرئيسي الداخلي */
+        .main-content {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 30px 24px;
+            position: relative;
+            background-color: var(--bg-cream);
+            scrollbar-width: none;
+        }
+
+        .main-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* الورود العصرية بالخلفية */
+        .bg-flower-top {
+            position: absolute;
+            top: -20px;
+            right: -30px;
+            font-size: 110px;
+            color: #f3ece2;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-flower-bottom {
+            position: absolute;
+            bottom: -30px;
+            left: -40px;
+            font-size: 130px;
+            color: #f3ece2;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .inner-card {
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(148, 126, 96, 0.25);
+            border-radius: 16px;
+            padding: 25px 15px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        .inner-card::before {
+            content: '';
+            position: absolute;
+            top: 6px; bottom: 6px; left: 6px; right: 6px;
+            border: 1px solid rgba(148, 126, 96, 0.15);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        .floral-divider {
+            font-size: 1.5rem;
+            color: var(--primary-light);
+            margin: 10px 0;
+        }
+
+        h2.title {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
         .quran-verse {
-            font-size: 0.95rem;
-            font-style: italic;
-            color: #666;
+            font-family: 'Amiri', serif;
+            font-size: 1.15rem;
+            color: var(--text-muted);
             line-height: 1.6;
-            margin: 20px 10px;
-            padding: 0 15px;
+            margin: 15px 0 25px 0;
         }
 
-        .names-section {
-            margin: 30px 0;
-        }
-
-        .couple-names {
-            font-family: 'Reem Kufi', serif;
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .invitation-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .details-box {
-            background-color: #faf8f5;
-            border-top: 1px solid var(--secondary-color);
-            border-bottom: 1px solid var(--secondary-color);
-            padding: 15px 0;
+        .names-container {
             margin: 25px 0;
         }
 
-        .date-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+        .names {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            margin: 10px 0;
         }
 
-        /* العداد التنازلي */
+        .details-grid {
+            background-color: #f4eee5;
+            border-radius: 12px;
+            padding: 20px 15px;
+            margin: 25px 0;
+            border: 1px solid rgba(148, 126, 96, 0.15);
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-text {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* العداد التنازلي المودرن */
+        .countdown-section {
+            margin: 30px 0;
+        }
+
         .countdown-title {
-            font-size: 1rem;
-            color: #777;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
         }
 
         .countdown-box {
-            background: #faf8f5;
-            border: 1px solid var(--secondary-color);
+            background: white;
+            border: 1px solid rgba(148, 126, 96, 0.2);
             border-radius: 10px;
-            width: 70px;
+            width: 68px;
             padding: 10px 0;
-        }
-
-        .countdown-box span {
-            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .time-num {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
         }
 
         .time-label {
-            font-size: 0.8rem;
-            color: #666;
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
         }
 
-        /* زر الموقع */
-        .location-btn {
+        /* زر الخريطة العصري */
+        .map-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--primary-color);
+            background-color: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 12px 35px;
+            padding: 14px 30px;
             border-radius: 30px;
             font-weight: bold;
-            font-size: 1.1rem;
-            transition: background 0.3s ease;
-            box-shadow: 0 4px 6px rgba(138, 115, 85, 0.2);
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(148, 126, 96, 0.3);
             margin-top: 10px;
+            width: 100%;
         }
 
-        .location-btn:hover {
-            background-color: #6e5b43;
+        .map-button:hover {
+            background-color: #7d694e;
+            box-shadow: 0 7px 20px rgba(148, 126, 96, 0.4);
         }
 
-        .location-btn svg {
+        .map-button svg {
             margin-left: 8px;
             fill: currentColor;
         }
 
-        .footer-flowers {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-top: 20px;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <div class="card-container">
+    <div class="phone-wrapper">
         
-        <div class="footer-flowers">✿ ✿ ✿</div>
-        <h1 class="main-title">دعوة زفاف</h1>
-        
-        <p class="quran-verse">
-            "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
-        </p>
-
-        <div class="names-section">
-            <div class="invitation-text">يتشرف أبناء المجتمع بدعوتكم لحضور حفل زفاف</div>
-            <div class="couple-names">عبدالله & عائشة</div>
+        <div class="envelope-screen" id="envelopeScreen">
+            <div class="envelope-wrapper" onclick="openInvitation()">
+                <div class="envelope-flower-1">🌸</div>
+                <div class="wax-seal"></div>
+                <div class="envelope-flower-2">🌺</div>
+            </div>
+            <button class="open-btn" onclick="openInvitation()">انقر هنا لفتح الدعوة</button>
         </div>
 
-        <div class="invitation-text">
-            وبحضوركم تكتمل فرحتنا وتضاء ليالينا البهيجة.
+        <div class="main-content">
+            <div class="bg-flower-top">🌸</div>
+            <div class="bg-flower-bottom">🌺</div>
+
+            <div class="inner-card">
+                <div class="floral-divider">🌸 ⚜️ 🌸</div>
+                <h2 class="title">دعوة زفاف مبهجة</h2>
+                
+                <p class="quran-verse">
+                    "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
+                </p>
+
+                <div class="names-container">
+                    <p style="color: var(--text-muted); font-size: 1.05rem;">بكل حب وبهجة، نتشرف بدعوتكم لحضور حفل زفاف</p>
+                    <div class="names">عبدالله & عائشة</div>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">🗓️ <span class="highlight-text">التاريخ:</span> الجمعة، 22 مايو 2026 م</div>
+                    <div class="detail-item">🕒 <span class="highlight-text">الوقت:</span> الساعة 3:00 ظهراً</div>
+                    <div class="detail-item">📍 <span class="highlight-text">الموقع:</span> مزرعة اورنج</div>
+                </div>
+
+                <div class="countdown-section">
+                    <div class="countdown-title">الوقت المتبقي على الليلة المنتظرة:</div>
+                    <div class="countdown-container">
+                        <div class="countdown-box">
+                            <span class="time-num" id="days">00</span>
+                            <span class="time-label">أيام</span>
+                        </div>
+                        <div class="countdown-box">
+                            <span class="time-num" id="hours">00</span>
+                            <span class="time-label">ساعة</span>
+                        </div>
+                        <div class="countdown-box">
+                            <span class="time-num" id="minutes">00</span>
+                            <span class="time-label">دقيقة</span>
+                        </div>
+                        <div class="countdown-box">
+                            <span class="time-num" id="seconds">00</span>
+                            <span class="time-label">ثانية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.app.goo.gl/DP1GcG593mm2YLJH8?g_st=ic" target="_blank" class="map-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    عرض موقع القاعة (مزرعة اورنج)
+                </a>
+
+                <div class="floral-divider" style="margin-top: 25px;">🌸</div>
+            </div>
         </div>
-
-        <div class="details-box">
-            <div class="date-title">يوم الجمعة</div>
-            <div>22 مايو 2026 م</div>
-        </div>
-
-        <div class="countdown-title">الوقت المتبقي على فرحتنا:</div>
-        <div class="countdown-container">
-            <div class="countdown-box">
-                <span class="time-num" id="days">00</span>
-                <span class="time-label">أيام</span>
-            </div>
-            <div class="countdown-box">
-                <span class="time-num" id="hours">00</span>
-                <span class="time-label">ساعة</span>
-            </div>
-            <div class="countdown-box">
-                <span class="time-num" id="minutes">00</span>
-                <span class="time-label">دقيقة</span>
-            </div>
-            <div class="countdown-box">
-                <span class="time-num" id="seconds">00</span>
-                <span class="time-label">ثانية</span>
-            </div>
-        </div>
-
-        <a href="https://maps.google.com" target="_blank" class="location-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            اضغط هنا لموقع القاعة
-        </a>
-
-        <div class="footer-flowers" style="margin-top: 30px;">✿</div>
 
     </div>
 
     <script>
-        // تحديد تاريخ الزفاف المطلوب (22 مايو 2026)
-        const weddingDate = new Date("May 22, 2026 20:00:00").getTime();
+        // تأثير حركة فتح الظرف بسلاسة
+        function openInvitation() {
+            document.getElementById('envelopeScreen').classList.add('opened');
+        }
+
+        // إعداد العداد التنازلي لـ تاريخ 22 مايو 2026 الساعة 3:00 عصراً (15:00)
+        const weddingDate = new Date("May 22, 2026 15:00:00").getTime();
 
         const timer = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
-            // حسابات الوقت للأيام، الساعات، الدقائق والثواني
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // عرض النتيجة في العناصر المحددة
             document.getElementById("days").innerText = days < 10 ? "0" + days : days;
             document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
             document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
-            // إذا انتهى العداد التنازلي
             if (distance < 0) {
                 clearInterval(timer);
                 document.querySelector(".countdown-title").innerText = "حان وقت الفرح! بارك الله لهما";
