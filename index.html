@@ -6,16 +6,16 @@
     <title>دعوة زفاف عبدالله و عائشة</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600&family=Cinzel:wght@500;700&family=Reem+Kufi+Fun:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600&family=Reem+Kufi+Fun:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-cream: #f9f6f0;
+            --bg-cream: #fbf9f4;
             --gold: #c5a880;
             --gold-dark: #a3845b;
             --text-main: #2c2724;
             --text-muted: #6e6560;
-            --card-white: #ffffff;
+            --white: #ffffff;
         }
 
         * {
@@ -77,24 +77,23 @@
             height: 230px;
             background: #fdfbf7;
             border-radius: 12px;
-            border: 1px solid rgba(197, 168, 128, 0.3);
-            box-shadow: 0 15px 40px rgba(163, 132, 91, 0.15);
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            box-shadow: 0 15px 40px rgba(163, 132, 91, 0.12);
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 35px;
         }
 
-        /* زينة زوايا الظرف بالورود الذهبية النظيفة وعالية الدقة */
-        .env-flower {
+        /* باقات الورود الذهبية الفاخرة على زوايا الظرف الخلفي */
+        .env-flower-img {
             position: absolute;
-            width: 65px;
-            height: 65px;
-            opacity: 0.8;
-            fill: var(--gold);
+            width: 100px;
+            height: auto;
+            pointer-events: none;
         }
-        .env-flower.top-left { top: -15px; left: -15px; transform: rotate(0deg); }
-        .env-flower.bottom-right { bottom: -15px; right: -15px; transform: rotate(180deg); }
+        .env-flower-img.top-left { top: -25px; left: -25px; transform: rotate(15deg); }
+        .env-flower-img.bottom-right { bottom: -25px; right: -25px; transform: rotate(195deg); }
 
         /* الختم الشمعي الدائري المماثل للصور الفاخرة */
         .wax-seal-button {
@@ -112,6 +111,7 @@
             position: relative;
             transition: transform 0.3s ease;
             animation: breathe 2.5s infinite ease-in-out;
+            z-index: 5;
         }
 
         .wax-seal-button:hover {
@@ -141,6 +141,7 @@
             color: var(--text-muted);
             letter-spacing: 0.5px;
             font-weight: 400;
+            cursor: pointer;
         }
 
         /* شاشة المحتوى الداخلي الفعلي للدعوة */
@@ -160,26 +161,27 @@
             border-radius: 20px;
             padding: 35px 20px;
             min-height: 100%;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
+            z-index: 2;
         }
 
-        /* ورود الـ SVG الخلفية الأنيقة والعصرية */
-        .bg-card-svg {
+        /* ورود الذهب المائية الفخمة في الخلفية الداخلية للدعوة */
+        .bg-card-gold-flower {
             position: absolute;
-            width: 130px;
-            height: 130px;
-            fill: #eae3d8;
+            width: 140px;
+            height: auto;
             z-index: -1;
             pointer-events: none;
+            opacity: 0.35;
         }
-        .bg-card-svg.top { top: -20px; right: -20px; }
-        .bg-card-svg.bottom { bottom: -20px; left: -20px; transform: rotate(180deg); }
+        .bg-card-gold-flower.top { top: -10px; right: -10px; }
+        .bg-card-gold-flower.bottom { bottom: -10px; left: -10px; transform: rotate(180deg); }
 
         .header-symbol {
             font-size: 1.5rem;
@@ -213,7 +215,7 @@
 
         /* كارت معلومات المناسبة المودرن */
         .info-card-grid {
-            background-color: rgba(253, 251, 247, 0.9);
+            background-color: rgba(253, 251, 247, 0.95);
             border: 1px solid rgba(197, 168, 128, 0.2);
             border-radius: 14px;
             padding: 20px 16px;
@@ -263,7 +265,7 @@
         }
 
         .time-node {
-            background: var(--card-white);
+            background: var(--white);
             border: 1px solid rgba(197, 168, 128, 0.25);
             border-radius: 12px;
             width: 70px;
@@ -326,8 +328,8 @@
         
         <div class="envelope-overlay" id="envScreen">
             <div class="envelope" onclick="openInvitationCard()">
-                <svg class="env-flower top-left" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18A2,2 0 0,1 14,20A2,2 0 0,1 12,22A2,2 0 0,1 10,20A2,2 0 0,1 12,18Z"/></svg>
-                <svg class="env-flower bottom-right" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18A2,2 0 0,1 14,20A2,2 0 0,1 12,22A2,2 0 0,1 10,20A2,2 0 0,1 12,18Z"/></svg>
+                <img src="https://i.ibb.co/6NG0Nvf/gold-flower-corner.png" class="env-flower-img top-left" alt="gold-flower">
+                <img src="https://i.ibb.co/6NG0Nvf/gold-flower-corner.png" class="env-flower-img bottom-right" alt="gold-flower">
                 
                 <div class="wax-seal-button">
                     <div class="seal-inner-circle"></div>
@@ -341,8 +343,8 @@
 
         <div class="invitation-body">
             <div class="inner-border-frame">
-                <svg class="bg-card-svg top" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" opacity="0.15"/></svg>
-                <svg class="bg-card-svg bottom" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" opacity="0.15"/></svg>
+                <img src="https://i.ibb.co/6NG0Nvf/gold-flower-corner.png" class="bg-card-gold-flower top" alt="gold-flower">
+                <img src="https://i.ibb.co/6NG0Nvf/gold-flower-corner.png" class="bg-card-gold-flower bottom" alt="gold-flower">
 
                 <div>
                     <div class="header-symbol">⚜️</div>
