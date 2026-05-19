@@ -49,7 +49,7 @@
             perspective: 1500px;
         }
 
-        /* الخلفية العامة المزينة بالورود العاجية الناعمة (نفس ستايل الصور) */
+        /* الخلفية العامة المزينة بالورود العاجية الناعمة */
         .floral-background-wrapper {
             width: 100%;
             height: 100%;
@@ -113,7 +113,6 @@
             max-width: 340px;
             height: 240px;
             background-color: var(--red-royal);
-            /* استخدام نقش بارز شبيه بنقوش الجلود الفاخرة والورود */
             background-image: url('https://www.transparenttextures.com/patterns/damask-wallpaper.png');
             border-radius: 12px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 0 20px rgba(0,0,0,0.3);
@@ -123,7 +122,7 @@
             justify-content: center;
             align-items: center;
             border: 1px solid rgba(255,255,255,0.1);
-            transform: rotate(-5deg); /* ميلان خفيف لإعطاء مظهر عصري */
+            transform: rotate(-5deg);
             transition: transform 0.5s ease;
         }
 
@@ -131,7 +130,6 @@
             transform: rotate(0deg) scale(1.02);
         }
 
-        /* الغطاء المثلثي الحاد للظرف */
         .envelope-flap {
             position: absolute;
             top: 0;
@@ -145,7 +143,6 @@
             z-index: 2;
         }
 
-        /* الختم الذهبي الوردي الدائري في المنتصف */
         .gold-rose-seal {
             width: 75px;
             height: 75px;
@@ -222,7 +219,7 @@
             text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
         }
 
-        /* قسم الملاحظات الودية (النساء والأطفال) */
+        /* قسم الملاحظات الودية (النساء، الأطفال، ومنع التصوير) */
         .friendly-note-box {
             background-color: rgba(158, 27, 34, 0.04);
             border: 1px dashed rgba(158, 27, 34, 0.3);
@@ -230,55 +227,31 @@
             padding: 15px;
             margin: 20px 0;
             font-size: 0.85rem;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-dark);
             width: 100%;
+            text-align: right;
         }
 
-        /* العداد التنازلي الأنيق الدائري */
-        .countdown-container {
-            margin: 25px 0;
-            width: 100%;
-        }
-
-        .countdown-title {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .countdown-row {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .time-circle {
-            background: #ffffff;
-            border: 1px solid rgba(188, 161, 127, 0.3);
-            border-radius: 50%;
-            width: 65px;
-            height: 65px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
-        }
-
-        .time-num {
-            font-size: 1.2rem;
-            font-weight: 700;
+        .friendly-note-box strong {
             color: var(--red-royal);
+            display: block;
+            margin-bottom: 5px;
         }
 
-        .time-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
+        /* عبارة منع التصوير البارزة والمحددة */
+        .no-photo-alert {
+            display: flex;
+            align-items: center;
+            color: #d32f2f;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            border-top: 1px solid rgba(211, 47, 47, 0.15);
+            padding-top: 8px;
         }
 
-        /* الجدول الزمني للمناسبة (نفس فكرة صورتك الرابعة) */
+        /* الجدول الزمني للمناسبة (مأخوذ حرفياً من صورتك الرابعة) */
         .timeline-box {
             width: 100%;
             background: #ffffff;
@@ -327,7 +300,50 @@
             margin-top: 2px;
         }
 
-        /* زر الخريطة الأنيق والمميز */
+        /* العداد التنازلي الحركي */
+        .countdown-container {
+            margin: 25px 0;
+            width: 100%;
+        }
+
+        .countdown-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .countdown-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .time-circle {
+            background: #ffffff;
+            border: 1px solid rgba(188, 161, 127, 0.3);
+            border-radius: 50%;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+        }
+
+        .time-num {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--red-royal);
+        }
+
+        .time-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* زر موقع القاعة التفاعلي */
         .location-button {
             display: inline-flex;
             align-items: center;
@@ -376,7 +392,7 @@
                     <p class="poetic-verse">
                         حين تأتي مناسباتنا السعيدة<br>
                         نتذكر من زرع فينا السعادة يوماً<br>
-                        ندعوكم لحضور حفل زفاف
+                        ndعوكم لحضور حفل زفاف
                     </p>
                     
                     <div class="names-title">عبدالله & عائشة</div>
@@ -384,6 +400,9 @@
                     <div class="friendly-note-box">
                         <strong>✨ تنويه وودّ متبادل:</strong>
                         الحفل مخصص للنساء. ولأننا نحب أطفالكم ونتمنى لهم نوماً هنيئاً، نعتذر عن استقبالهم لنسعد بحضوركم الأنيق والراقي.
+                        <div class="no-photo-alert">
+                            📸 يُمنع منعاً باتاً التصوير؛ جنة حفلنا تكتمل بحفظ خصوصيتنا.
+                        </div>
                     </div>
 
                     <div class="timeline-box">
@@ -398,21 +417,21 @@
                             <div class="timeline-icon">🚪</div>
                             <div class="timeline-details">
                                 <div class="timeline-title">الاستقبال</div>
-                                <div class="timeline-time">6:00 مساءً</div>
+                                <div class="timeline-time">6:00 pm</div>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-icon">👰</div>
                             <div class="timeline-details">
                                 <div class="timeline-title">الزفة</div>
-                                <div class="timeline-time">8:00 مساءً</div>
+                                <div class="timeline-time">8:00 pm</div>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-icon">🍽️</div>
                             <div class="timeline-details">
                                 <div class="timeline-title">العشاء</div>
-                                <div class="timeline-time">11:00 مساءً</div>
+                                <div class="timeline-time">11:00 pm</div>
                             </div>
                         </div>
                     </div>
@@ -439,10 +458,8 @@
 
     <script>
         function openInvitation() {
-            // إخفاء غطاء الظرف الأحمر بحركة علوية سلسة
             document.getElementById('envelopePage').classList.add('hide-envelope');
             
-            // إطلاق جزيئات وذهبيات الفرح
             var duration = 1.5 * 1000;
             var end = Date.now() + duration;
 
@@ -468,7 +485,7 @@
             }());
         }
 
-        // عداد تنازلي حقيقي ليوم الحفل (1 يونيو 2026 م)
+        // عداد تنازلي حقيقي ليوم الحفل الدقيق (1 يونيو 2026 م)
         const eventDate = new Date("June 1, 2026 18:00:00").getTime();
 
         setInterval(function() {
