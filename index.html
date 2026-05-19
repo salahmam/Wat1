@@ -107,7 +107,7 @@
             pointer-events: none;
         }
 
-        /* مجسم الظرف الأحمر المستوحى من صورتك */
+        /* مجسم الظرف الأحمر */
         .leather-red-envelope {
             width: 100%;
             max-width: 340px;
@@ -251,7 +251,7 @@
             padding-top: 8px;
         }
 
-        /* الجدول الزمني للمناسبة (مأخوذ حرفياً من صورتك الرابعة) */
+        /* الجدول الزمني للمناسبة الدقيق المحدث حديثاً */
         .timeline-box {
             width: 100%;
             background: #ffffff;
@@ -392,7 +392,7 @@
                     <p class="poetic-verse">
                         حين تأتي مناسباتنا السعيدة<br>
                         نتذكر من زرع فينا السعادة يوماً<br>
-                        ndعوكم لحضور حفل زفاف
+                        ندعوكم لحضور حفل زفاف
                     </p>
                     
                     <div class="names-title">عبدالله & عائشة</div>
@@ -409,29 +409,15 @@
                         <div class="timeline-item">
                             <div class="timeline-icon">🗓️</div>
                             <div class="timeline-details">
-                                <div class="timeline-title">يوم الاثنين</div>
-                                <div class="timeline-time">1 / 6 / 2026 م</div>
+                                <div class="timeline-title">يوم الجمعة</div>
+                                <div class="timeline-time">22 / 5 / 2026 م</div>
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-icon">🚪</div>
+                            <div class="timeline-icon">🕒</div>
                             <div class="timeline-details">
-                                <div class="timeline-title">الاستقبال</div>
-                                <div class="timeline-time">6:00 pm</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-icon">👰</div>
-                            <div class="timeline-details">
-                                <div class="timeline-title">الزفة</div>
-                                <div class="timeline-time">8:00 pm</div>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-icon">🍽️</div>
-                            <div class="timeline-details">
-                                <div class="timeline-title">العشاء</div>
-                                <div class="timeline-time">11:00 pm</div>
+                                <div class="timeline-title">وقت الحفل</div>
+                                <div class="timeline-time">3:00 ظهراً</div>
                             </div>
                         </div>
                     </div>
@@ -485,17 +471,17 @@
             }());
         }
 
-        // عداد تنازلي حقيقي ليوم الحفل الدقيق (1 يونيو 2026 م)
-        const eventDate = new Date("June 1, 2026 18:00:00").getTime();
+        // عداد تنازلي حقيقي ليوم الحفل الدقيق (22 مايو 2026 م الساعة 3 ظهراً)
+        const eventDate = new Date("May 22, 2026 15:00:00").getTime();
 
         setInterval(function() {
             const now = new Date().getTime();
             const diff = eventDate - now;
 
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            const d = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+            const h = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            const m = Math.max(0, Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
+            const s = Math.max(0, Math.floor((diff % (1000 * 60)) / 1000));
 
             document.getElementById("daysBox").innerText = d < 10 ? "0" + d : d;
             document.getElementById("hoursBox").innerText = h < 10 ? "0" + h : h;
