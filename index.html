@@ -1,25 +1,259 @@
-<div style="max-width: 500px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); font-family: 'Cairo', sans-serif; direction: rtl; padding: 0; margin: 20px auto; overflow: hidden; position: relative;">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف عبدالله و عائشة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
     
-    <div style="position: relative; width: 100%; display: block;">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500" alt="Purity Botox & Fillers" style="width: 100%; height: auto; display: block; object-fit: cover;">
-        
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 100%); pointer-events: none;"></div>
-    </div>
+    <style>
+        :root {
+            --primary-color: #8a7355;
+            --secondary-color: #dfd5c6;
+            --text-color: #333333;
+            --bg-color: #fcfbfa;
+        }
 
-    <div style="padding: 25px 30px; text-align: center; background: #ffffff;">
-        <p style="color: #475569; font-size: 15px; line-height: 1.6; margin: 0 0 20px 0; font-weight: 500;">
-            انضمي إلى آلاف النساء اللواتي استعدن شبابهن ونضارة بشرتهن مع كريم بيوريتي المتقدم.
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            background: #ffffff;
+            max-width: 450px;
+            width: 90%;
+            margin: 20px auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 3px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--secondary-color);
+            overflow: hidden;
+            text-align: center;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        /* إطار زخرفي خفيف */
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 10px; bottom: 10px; left: 10px; right: 10px;
+            border: 1px solid rgba(138, 115, 85, 0.3);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        h1.main-title {
+            font-family: 'Reem Kufi', serif;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .quran-verse {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #666;
+            line-height: 1.6;
+            margin: 20px 10px;
+            padding: 0 15px;
+        }
+
+        .names-section {
+            margin: 30px 0;
+        }
+
+        .couple-names {
+            font-family: 'Reem Kufi', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .invitation-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .details-box {
+            background-color: #faf8f5;
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+            padding: 15px 0;
+            margin: 25px 0;
+        }
+
+        .date-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* العداد التنازلي */
+        .countdown-title {
+            font-size: 1rem;
+            color: #777;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .countdown-box {
+            background: #faf8f5;
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            width: 70px;
+            padding: 10px 0;
+        }
+
+        .countdown-box span {
+            display: block;
+        }
+
+        .time-num {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .time-label {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* زر الموقع */
+        .location-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(138, 115, 85, 0.2);
+            margin-top: 10px;
+        }
+
+        .location-btn:hover {
+            background-color: #6e5b43;
+        }
+
+        .location-btn svg {
+            margin-left: 8px;
+            fill: currentColor;
+        }
+
+        .footer-flowers {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <div class="footer-flowers">✿ ✿ ✿</div>
+        <h1 class="main-title">دعوة زفاف</h1>
+        
+        <p class="quran-verse">
+            "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"
         </p>
-        
-        <a href="#order-form" style="display: block; background: #0b2545; color: #ffffff; text-decoration: none; padding: 15px 20px; border-radius: 50px; font-size: 18px; font-weight: 700; box-shadow: 0 10px 20px rgba(11, 37, 69, 0.2); transition: all 0.3s ease;">
-            اطلبي المنتج الآن واستعيدي نضارتك ✨
-        </a>
-        
-        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px; font-size: 12px; color: #64748b;">
-            <span>🚚 توصيل سريع لكافة المحافظات</span>
-            <span>•</span>
-            <span>🤝 الدفع عند الاستلام</span>
+
+        <div class="names-section">
+            <div class="invitation-text">يتشرف أبناء المجتمع بدعوتكم لحضور حفل زفاف</div>
+            <div class="couple-names">عبدالله & عائشة</div>
         </div>
+
+        <div class="invitation-text">
+            وبحضوركم تكتمل فرحتنا وتضاء ليالينا البهيجة.
+        </div>
+
+        <div class="details-box">
+            <div class="date-title">يوم الجمعة</div>
+            <div>22 مايو 2026 م</div>
+        </div>
+
+        <div class="countdown-title">الوقت المتبقي على فرحتنا:</div>
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span class="time-num" id="days">00</span>
+                <span class="time-label">أيام</span>
+            </div>
+            <div class="countdown-box">
+                <span class="time-num" id="hours">00</span>
+                <span class="time-label">ساعة</span>
+            </div>
+            <div class="countdown-box">
+                <span class="time-num" id="minutes">00</span>
+                <span class="time-label">دقيقة</span>
+            </div>
+            <div class="countdown-box">
+                <span class="time-num" id="seconds">00</span>
+                <span class="time-label">ثانية</span>
+            </div>
+        </div>
+
+        <a href="https://maps.google.com" target="_blank" class="location-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            اضغط هنا لموقع القاعة
+        </a>
+
+        <div class="footer-flowers" style="margin-top: 30px;">✿</div>
+
     </div>
 
-</div>
+    <script>
+        // تحديد تاريخ الزفاف المطلوب (22 مايو 2026)
+        const weddingDate = new Date("May 22, 2026 20:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            // حسابات الوقت للأيام، الساعات، الدقائق والثواني
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // عرض النتيجة في العناصر المحددة
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            // إذا انتهى العداد التنازلي
+            if (distance < 0) {
+                clearInterval(timer);
+                document.querySelector(".countdown-title").innerText = "حان وقت الفرح! بارك الله لهما";
+                document.querySelector(".countdown-container").style.display = "none";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
