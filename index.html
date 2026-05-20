@@ -20,7 +20,7 @@
             --text-dark: #2c2724;
             --text-muted: #665e57;
             --red-royal: #911218;
-            --red-light: rgba(145, 18, 24, 0.04);
+            --red-light: rgba(145, 18, 24, 0.03);
         }
 
         * {
@@ -40,7 +40,6 @@
             overflow: hidden;
         }
 
-        /* حاوية العرض الذكية الفاخرة للهواتف */
         .phone-container {
             width: 100%;
             max-width: 412px;
@@ -52,7 +51,7 @@
             perspective: 1200px;
         }
 
-        /* 1. واجهة الظرف التفاعلية الفخمة */
+        /* 1. واجهة الظرف التفاعلية العائمة */
         .envelope-overlay {
             position: absolute;
             top: 0;
@@ -75,13 +74,13 @@
             pointer-events: none;
         }
 
-        /* حاوية الظرف التي تدعم تتبع حركة اليد والإيماءات */
+        /* تأثير العوم والاهتزاز التلقائي ثلاثي الأبعاد */
         .envelope-tilt-wrapper {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.1s ease;
+            animation: floatingEnvelope 4s infinite ease-in-out;
             transform-style: preserve-3d;
         }
 
@@ -89,20 +88,19 @@
             width: 95%;
             max-width: 360px;
             cursor: pointer;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: drop-shadow(0 25px 45px rgba(0,0,0,0.35));
+            transition: transform 0.4s ease;
         }
 
         .user-envelope-img:hover {
-            transform: scale(1.04) rotate(1deg);
+            transform: scale(1.03);
         }
 
         .action-click-hint {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--red-royal);
             font-weight: 700;
             margin-top: 35px;
-            letter-spacing: 0.5px;
             position: relative;
             cursor: pointer;
             padding-bottom: 6px;
@@ -116,25 +114,49 @@
             width: 50%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold-premium), transparent);
-            animation: pulse-line 2s infinite ease-in-out;
         }
 
-        /* 2. المحتوى الداخلي الانسيابي والفاخر */
+        /* 2. المحتوى الداخلي مع النقوش الملكية والخلفية الفخمة */
         .internal-contents {
             width: 100%;
             height: 100%;
             overflow-y: auto;
             padding: 45px 28px;
             scrollbar-width: none;
-            background-image: radial-gradient(circle at top right, rgba(197,168,128,0.05), transparent);
+            position: relative;
+            background-image: radial-gradient(circle at top right, rgba(197,168,128,0.08), transparent);
         }
         .internal-contents::-webkit-scrollbar { display: none; }
+
+        /* نقوش ملكية مذهبة ناعمة في الزوايا */
+        .royal-pattern {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            opacity: 0.18;
+            pointer-events: none;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .pattern-top-right {
+            top: 15px;
+            right: 15px;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M0,0 Q50,0 50,50 Q0,50 0,0 Z M50,50 Q100,50 100,100 M100,0 L0,100' stroke='%238e744a' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='5' fill='%238e744a'/></svg>");
+        }
+        .pattern-top-left {
+            top: 15px;
+            left: 15px;
+            transform: rotate(-90deg);
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M0,0 Q50,0 50,50 Q0,50 0,0 Z M50,50 Q100,50 100,100 M100,0 L0,100' stroke='%238e744a' stroke-width='2' fill='none'/><circle cx='50' cy='50' r='5' fill='%238e744a'/></svg>");
+        }
 
         .main-card {
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .bismillah {
@@ -142,7 +164,6 @@
             font-size: 1.9rem;
             color: var(--gold-dark);
             margin-bottom: 15px;
-            letter-spacing: 1px;
         }
 
         .quran-verse {
@@ -156,11 +177,10 @@
         }
 
         .beautiful-phrase {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text-muted);
             line-height: 1.8;
             margin-bottom: 25px;
-            font-weight: 400;
             max-width: 95%;
         }
 
@@ -170,42 +190,47 @@
             color: var(--red-royal);
             font-weight: 700;
             margin: 5px 0 25px 0;
-            letter-spacing: -0.5px;
             background: linear-gradient(45deg, #731015, #b81d24);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* صندوق مخصص للنساء الفاخر والناعم جداً */
+        /* تعديل وتصغير صندوق التنويه ليكون كل عبارة في سطر واحد وبحجم ناعم جداً */
         .friendly-note-box {
             background-color: var(--red-light);
-            border-left: 3px solid var(--red-royal);
-            border-right: 3px solid var(--red-royal);
-            border-radius: 8px;
-            padding: 12px 18px;
-            margin: 15px 0 25px 0;
+            border: 1px solid rgba(145, 18, 24, 0.15);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin: 10px 0 25px 0;
             width: 100%;
-            box-shadow: inset 0 0 10px rgba(145, 18, 24, 0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
         .female-only {
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
+            white-space: nowrap; /* إجبار النص على البقاء في سطر واحد */
+            overflow: hidden;
+            text-overflow: ellipsis;
             display: block;
-            margin-bottom: 6px;
         }
 
         .no-photo-alert {
             color: #bd2129;
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.82rem;
+            white-space: nowrap; /* إجبار النص على البقاء في سطر واحد */
+            overflow: hidden;
+            text-overflow: ellipsis;
             display: block;
-            border-top: 1px solid rgba(145, 18, 24, 0.1);
+            border-top: 1px dashed rgba(145, 18, 24, 0.1);
             padding-top: 6px;
         }
 
-        /* تنسيق تفاصيل الوقت والمكان العصرية والمعمارية الأنيقة */
+        /* تفاصيل الوقت والمكان المعمارية الفاخرة */
         .details-grid {
             width: 100%;
             margin-bottom: 25px;
@@ -223,7 +248,6 @@
             border: 1px solid rgba(197, 168, 128, 0.25);
             box-shadow: 0 10px 25px rgba(197, 168, 128, 0.06);
             text-align: right;
-            transition: transform 0.3s ease;
         }
 
         .detail-icon {
@@ -236,7 +260,6 @@
             justify-content: center;
             align-items: center;
             border-radius: 12px;
-            box-shadow: inset 0 2px 5px rgba(255,255,255,0.6);
         }
 
         .detail-info {
@@ -249,8 +272,6 @@
             font-size: 0.78rem;
             color: var(--text-muted);
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
         }
 
         .detail-value {
@@ -260,7 +281,7 @@
             margin-top: 2px;
         }
 
-        /* العداد التنازلي العصري والجذاب */
+        /* العداد التنازلي */
         .countdown-row {
             display: flex;
             justify-content: center;
@@ -281,7 +302,6 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-            position: relative;
         }
 
         .time-num { 
@@ -295,10 +315,8 @@
             font-size: 0.68rem; 
             color: var(--text-muted); 
             font-weight: 600;
-            margin-top: 2px;
         }
 
-        /* زر الخريطة الاحترافي التفاعلي البارز */
         .location-btn {
             background: linear-gradient(135deg, #911218 0%, #630509 100%);
             color: #ffffff;
@@ -310,17 +328,9 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
             margin-top: 20px;
             box-shadow: 0 12px 30px rgba(145, 18, 24, 0.3);
             font-size: 1rem;
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease;
-        }
-
-        .location-btn:active {
-            transform: scale(0.98);
-            box-shadow: 0 5px 15px rgba(145, 18, 24, 0.4);
         }
 
         .footer-verse {
@@ -331,9 +341,11 @@
             font-weight: 600;
         }
 
-        @keyframes pulse-line {
-            0%, 100% { transform: scaleX(1); opacity: 0.5; }
-            50% { transform: scaleX(1.3); opacity: 1; }
+        /* أنيميشن الطفو والانسيابية للظرف */
+        @keyframes floatingEnvelope {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(0.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
     </style>
 </head>
@@ -342,17 +354,19 @@
     <div class="phone-container">
         
         <div class="envelope-overlay" id="envelopePage">
-            <div class="envelope-tilt-wrapper" id="tiltWrapper">
+            <div class="envelope-tilt-wrapper">
                 <img src="—Pngtree—red floral embossed envelope for_20888293.png" 
                      class="user-envelope-img" 
-                     alt="دعوة زفاف ملكية فاخرة" 
+                     alt="دعوة زفاف ملكية" 
                      onclick="openInvitation()">
             </div>
-            
             <p class="action-click-hint" onclick="openInvitation()">اضغط على الظرف لفتح الدعوة ✨</p>
         </div>
 
         <div class="internal-contents">
+            <div class="royal-pattern pattern-top-right"></div>
+            <div class="royal-pattern pattern-top-left"></div>
+
             <div class="main-card">
                 <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
                 
@@ -363,8 +377,8 @@
                 <div class="names-title">عبدالله & عائشة</div>
 
                 <div class="friendly-note-box">
-                    <span class="female-only">✨ الحفل مخصص للنساء؛ نسعد بحضوركم الأنيق والراقي.</span>
-                    <span class="no-photo-alert">📸 يُمنع منعاً باتاً التصوير (حفظاً للخصوصية المتبادلة).</span>
+                    <span class="female-only">✨ الحفل مخصص للنساء؛ نسعد بحضوركم الأنيق والراقي لتعمّ البهجة حفلنا.</span>
+                    <span class="no-photo-alert">📸 يُمنع منعاً باتاً التصوير؛ جنة حفلنا تكتمل بحفظ خصوصيتنا.</span>
                 </div>
 
                 <div class="details-grid">
@@ -411,25 +425,9 @@
     </div>
 
     <script>
-        // تأثير حركي ذكي لتفاعل الظرف مع اللمس أو تحريك الماوس للإحساس بالواقعية وثلاثية الأبعاد
-        const container = document.getElementById('envelopePage');
-        const wrapper = document.getElementById('tiltWrapper');
-        
-        container.addEventListener('mousemove', (e) => {
-            let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
-            let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
-            wrapper.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            wrapper.style.transform = `rotateY(0deg) rotateX(0deg)`;
-        });
-
-        // فتح الدعوة وإطلاق قصاصات الورق الملونة الفاخرة
         function openInvitation() {
             document.getElementById('envelopePage').classList.add('hide-envelope');
             
-            // تأثير Confetti الفخم
             confetti({
                 particleCount: 160,
                 spread: 80,
@@ -438,7 +436,7 @@
             });
         }
 
-        // العداد التنازلي الحقيقي للوقت الدقيق والمطلوب
+        // العداد التنازلي الحقيقي للوقت (22 مايو 2026 الساعة 3:00 ظهراً)
         const targetDate = new Date("May 22, 2026 15:00:00").getTime();
 
         setInterval(function() {
