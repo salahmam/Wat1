@@ -16,6 +16,7 @@
             --bg-creamy: #fbf9f4;
             --gold-premium: #bca17f;
             --text-dark: #3a3530;
+            --text-muted: #6e665e;
             --red-royal: #9e1b22;
         }
 
@@ -46,7 +47,7 @@
             overflow: hidden;
         }
 
-        /* واجهة الظرف باستخدام الصورة التي أرسلتها */
+        /* واجهة الظرف التفاعلية */
         .envelope-overlay {
             position: absolute;
             top: 0;
@@ -73,7 +74,7 @@
             width: 90%;
             max-width: 350px;
             cursor: pointer;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.35));
             transition: transform 0.3s ease;
             animation: float 3s infinite ease-in-out;
         }
@@ -83,21 +84,21 @@
         }
 
         .action-click-hint {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--red-royal);
             font-weight: 700;
-            margin-top: 30px;
+            margin-top: 25px;
             border-bottom: 2px solid var(--gold-premium);
-            padding-bottom: 5px;
+            padding-bottom: 4px;
             cursor: pointer;
         }
 
-        /* المحتوى الداخلي */
+        /* المحتوى الداخلي الانسيابي */
         .internal-contents {
             width: 100%;
             height: 100%;
             overflow-y: auto;
-            padding: 40px 25px;
+            padding: 35px 25px;
             scrollbar-width: none;
         }
         .internal-contents::-webkit-scrollbar { display: none; }
@@ -111,9 +112,27 @@
 
         .bismillah {
             font-family: 'Amiri', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--gold-premium);
+            margin-bottom: 10px;
+        }
+
+        .quran-verse {
+            font-family: 'Amiri', serif;
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: bold;
+            max-width: 90%;
+        }
+
+        .beautiful-phrase {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
             margin-bottom: 20px;
+            font-style: italic;
         }
 
         .names-title {
@@ -121,99 +140,127 @@
             font-size: 2.8rem;
             color: var(--red-royal);
             font-weight: 700;
-            margin: 10px 0;
+            margin: 5px 0 15px 0;
         }
 
+        /* تصغير وتنعيم صندوق مخصص للنساء */
         .friendly-note-box {
-            background-color: rgba(158, 27, 34, 0.05);
-            border: 1px dashed var(--red-royal);
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px 0;
+            background-color: rgba(158, 27, 34, 0.03);
+            border: 1px dashed rgba(158, 27, 34, 0.4);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 15px 0;
             width: 100%;
-            text-align: center;
         }
 
         .female-only {
             color: var(--text-dark);
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.88rem;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .no-photo-alert {
             color: #d32f2f;
-            font-weight: 800;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 0.92rem;
             display: block;
-            border-top: 1px solid rgba(211, 47, 47, 0.2);
-            padding-top: 10px;
+            border-top: 1px dashed rgba(211, 47, 47, 0.15);
+            padding-top: 6px;
         }
 
-        .timeline-box {
+        /* تنسيق تفاصيل الوقت والمكان بشكل أجمل وأفخم */
+        .details-grid {
             width: 100%;
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px;
             margin: 20px 0;
-            border: 1px solid rgba(188, 161, 127, 0.3);
-        }
-
-        .timeline-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+            flex-direction: column;
+            gap: 12px;
         }
-        .timeline-item:last-child { margin-bottom: 0; }
 
-        .item-label { font-weight: 700; color: var(--text-dark); }
-        .item-value { color: var(--gold-premium); font-weight: 600; }
+        .detail-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            border: 1px solid rgba(188, 161, 127, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            text-align: right;
+        }
 
+        .detail-icon {
+            font-size: 1.5rem;
+            margin-left: 15px;
+            background: rgba(188, 161, 127, 0.12);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .detail-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        /* العداد التنازلي */
         .countdown-row {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .time-box {
             background: #fff;
-            border: 1px solid var(--gold-premium);
+            border: 1px solid rgba(188, 161, 127, 0.3);
             border-radius: 10px;
-            width: 60px;
-            height: 60px;
+            width: 58px;
+            height: 58px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
-        .time-num { font-size: 1.2rem; font-weight: 700; color: var(--red-royal); }
-        .time-lab { font-size: 0.7rem; color: var(--text-dark); }
+        .time-num { font-size: 1.15rem; font-weight: 700; color: var(--red-royal); }
+        .time-lab { font-size: 0.65rem; color: var(--text-muted); }
 
         .location-btn {
             background: linear-gradient(135deg, #9e1b22, #731015);
             color: #fff;
             text-decoration: none;
-            padding: 15px;
+            padding: 14px;
             border-radius: 50px;
             font-weight: 700;
             width: 100%;
             display: block;
-            margin-top: 20px;
-            box-shadow: 0 10px 20px rgba(158, 27, 34, 0.3);
+            margin-top: 15px;
+            box-shadow: 0 10px 20px rgba(158, 27, 34, 0.25);
+            font-size: 0.95rem;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: translateY(-8px); }
         }
     </style>
 </head>
@@ -222,38 +269,52 @@
     <div class="phone-container">
         
         <div class="envelope-overlay" id="envelopePage">
-            <img src="https://storage.googleapis.com/test-82b5a.appspot.com/image_generation_content/0.png" 
+            <img src="royal-envelope.png" 
                  class="user-envelope-img" 
                  alt="الظرف الملكي" 
                  onclick="openInvitation()">
             
-            <p class="action-click-hint" onclick="openInvitation()">اضغط على الظرف لفتح الدعوة</p>
+            <p class="action-click-hint" onclick="openInvitation()">اضغط على الظرف لفتح الدعوة ✨</p>
         </div>
 
         <div class="internal-contents">
             <div class="main-card">
                 <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
                 
-                <p style="color: var(--gold-premium); font-weight: 600;">يَسُرنا دَعوتكم لِحُضور حفل زفاف</p>
+                <p class="quran-verse">"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً"</p>
+                
+                <p class="beautiful-phrase">تكتمل بهجتنا بوجودكم، وتزدهر أيامنا بمشاركتكم الفرحة الأجمل.. يَسُرنا دَعوتكم لِحُضور حفل زفاف</p>
+                
                 <div class="names-title">عبدالله & عائشة</div>
 
                 <div class="friendly-note-box">
-                    <span class="female-only">✨ الحفل مخصص للنساء؛ نسعد بحضوركم الأنيق والراقي لتعمّ البهجة حفلنا.</span>
-                    <span class="no-photo-alert">📸 يُمنع منعاً باتاً التصوير؛ جنة حفلنا تكتمل بحفظ خصوصيتنا.</span>
+                    <span class="female-only">✨ الحفل مخصص للنساء؛ نسعد بحضوركم الأنيق والراقي.</span>
+                    <span class="no-photo-alert">📸 يُمنع منعاً باتاً التصوير (حفظاً للخصوصية المتبادلة).</span>
                 </div>
 
-                <div class="timeline-box">
-                    <div class="timeline-item">
-                        <span class="item-label">🗓️ اليوم والتاريخ</span>
-                        <span class="item-value">الجمعة، 22 / 05 / 2026 م</span>
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <div class="detail-icon">🗓️</div>
+                        <div class="detail-info">
+                            <span class="detail-label">اليوم والتاريخ</span>
+                            <span class="detail-value">الجمعة، 22 / 05 / 2026 م</span>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <span class="item-label">🕒 وقت الحفل</span>
-                        <span class="item-value">3:00 ظهراً</span>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">🕒</div>
+                        <div class="detail-info">
+                            <span class="detail-label">وقت الحفل الإستثنائي</span>
+                            <span class="detail-value">3:00 ظهراً</span>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <span class="item-label">📍 المكان</span>
-                        <span class="item-value">مزرعة اورنج</span>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-info">
+                            <span class="detail-label">مكان الحفل</span>
+                            <span class="detail-value">مزرعة اورنج</span>
+                        </div>
                     </div>
                 </div>
 
@@ -265,10 +326,10 @@
                 </div>
 
                 <a href="https://maps.app.goo.gl/DP1GcG593mm2YLJH8?g_st=ic" target="_blank" class="location-btn">
-                    📍 موقع القاعة على الخريطة
+                    📍 موقع القاعة عبر خرائط Google
                 </a>
                 
-                <p style="margin-top: 30px; font-family: 'Amiri'; color: var(--gold-premium); font-size: 1.2rem;">دامت دياركم بالأفراح عامرة</p>
+                <p style="margin-top: 25px; font-family: 'Amiri'; color: var(--gold-premium); font-size: 1.1rem;">دامت دياركم بالأفراح عامرة</p>
             </div>
         </div>
 
@@ -278,16 +339,15 @@
         function openInvitation() {
             document.getElementById('envelopePage').classList.add('hide-envelope');
             
-            // تأثير قصاصات الورق (Confetti)
             confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 },
+                particleCount: 140,
+                spread: 65,
+                origin: { y: 0.65 },
                 colors: ['#9e1b22', '#bca17f', '#ffffff']
             });
         }
 
-        // العداد التنازلي (22 مايو 2026 الساعة 3:00 ظهراً)
+        // العداد التنازلي الحقيقي
         const target = new Date("May 22, 2026 15:00:00").getTime();
 
         setInterval(function() {
