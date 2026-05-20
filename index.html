@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دعوة زفاف عبدالله و عائشة</title>
+    <title>دعوة زفاف عبدالله وعائشة</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@1&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <style>
         :root {
-            --bg-creamy: #fbf9f4;
-            --gold-premium: #bca17f;
-            --text-dark: #3a3530;
-            --text-muted: #6e665e;
-            --red-royal: #9e1b22;
+            --bg-creamy: #fdfbf7;
+            --gold-light: #f3eade;
+            --gold-premium: #c5a880;
+            --gold-dark: #8e744a;
+            --text-dark: #2c2724;
+            --text-muted: #665e57;
+            --red-royal: #911218;
+            --red-light: rgba(145, 18, 24, 0.04);
         }
 
         * {
@@ -30,24 +33,26 @@
         body, html {
             height: 100%;
             font-family: 'Cairo', sans-serif;
-            background-color: #12110f;
+            background-color: #0d0c0b;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
         }
 
+        /* حاوية العرض الذكية الفاخرة للهواتف */
         .phone-container {
             width: 100%;
-            max-width: 420px;
+            max-width: 412px;
             height: 100vh;
             background-color: var(--bg-creamy);
             position: relative;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.8);
             overflow: hidden;
+            perspective: 1200px;
         }
 
-        /* واجهة الظرف التفاعلية */
+        /* 1. واجهة الظرف التفاعلية الفخمة */
         .envelope-overlay {
             position: absolute;
             top: 0;
@@ -60,46 +65,68 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            transition: all 1.2s cubic-bezier(0.7, 0, 0.2, 1);
+            padding: 24px;
+            transition: all 1.4s cubic-bezier(0.77, 0, 0.175, 1);
         }
 
         .envelope-overlay.hide-envelope {
-            transform: translateY(-100%);
+            transform: translateY(-100%) scale(0.9);
             opacity: 0;
             pointer-events: none;
         }
 
+        /* حاوية الظرف التي تدعم تتبع حركة اليد والإيماءات */
+        .envelope-tilt-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.1s ease;
+            transform-style: preserve-3d;
+        }
+
         .user-envelope-img {
-            width: 90%;
-            max-width: 350px;
+            width: 95%;
+            max-width: 360px;
             cursor: pointer;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.35));
-            transition: transform 0.3s ease;
-            animation: float 3s infinite ease-in-out;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .user-envelope-img:hover {
-            transform: scale(1.03);
+            transform: scale(1.04) rotate(1deg);
         }
 
         .action-click-hint {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--red-royal);
             font-weight: 700;
-            margin-top: 25px;
-            border-bottom: 2px solid var(--gold-premium);
-            padding-bottom: 4px;
+            margin-top: 35px;
+            letter-spacing: 0.5px;
+            position: relative;
             cursor: pointer;
+            padding-bottom: 6px;
         }
 
-        /* المحتوى الداخلي الانسيابي */
+        .action-click-hint::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-premium), transparent);
+            animation: pulse-line 2s infinite ease-in-out;
+        }
+
+        /* 2. المحتوى الداخلي الانسيابي والفاخر */
         .internal-contents {
             width: 100%;
             height: 100%;
             overflow-y: auto;
-            padding: 35px 25px;
+            padding: 45px 28px;
             scrollbar-width: none;
+            background-image: radial-gradient(circle at top right, rgba(197,168,128,0.05), transparent);
         }
         .internal-contents::-webkit-scrollbar { display: none; }
 
@@ -112,45 +139,53 @@
 
         .bismillah {
             font-family: 'Amiri', serif;
-            font-size: 1.6rem;
-            color: var(--gold-premium);
-            margin-bottom: 10px;
+            font-size: 1.9rem;
+            color: var(--gold-dark);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .quran-verse {
             font-family: 'Amiri', serif;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--text-dark);
             line-height: 1.6;
-            margin-bottom: 15px;
-            font-weight: bold;
-            max-width: 90%;
+            margin-bottom: 20px;
+            font-weight: 700;
+            max-width: 95%;
         }
 
         .beautiful-phrase {
             font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 20px;
-            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-weight: 400;
+            max-width: 95%;
         }
 
         .names-title {
             font-family: 'Amiri', serif;
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: var(--red-royal);
             font-weight: 700;
-            margin: 5px 0 15px 0;
+            margin: 5px 0 25px 0;
+            letter-spacing: -0.5px;
+            background: linear-gradient(45deg, #731015, #b81d24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* تصغير وتنعيم صندوق مخصص للنساء */
+        /* صندوق مخصص للنساء الفاخر والناعم جداً */
         .friendly-note-box {
-            background-color: rgba(158, 27, 34, 0.03);
-            border: 1px dashed rgba(158, 27, 34, 0.4);
-            border-radius: 10px;
-            padding: 10px 15px;
-            margin: 15px 0;
+            background-color: var(--red-light);
+            border-left: 3px solid var(--red-royal);
+            border-right: 3px solid var(--red-royal);
+            border-radius: 8px;
+            padding: 12px 18px;
+            margin: 15px 0 25px 0;
             width: 100%;
+            box-shadow: inset 0 0 10px rgba(145, 18, 24, 0.02);
         }
 
         .female-only {
@@ -162,105 +197,143 @@
         }
 
         .no-photo-alert {
-            color: #d32f2f;
+            color: #bd2129;
             font-weight: 700;
             font-size: 0.92rem;
             display: block;
-            border-top: 1px dashed rgba(211, 47, 47, 0.15);
+            border-top: 1px solid rgba(145, 18, 24, 0.1);
             padding-top: 6px;
         }
 
-        /* تنسيق تفاصيل الوقت والمكان بشكل أجمل وأفخم */
+        /* تنسيق تفاصيل الوقت والمكان العصرية والمعمارية الأنيقة */
         .details-grid {
             width: 100%;
-            margin: 20px 0;
+            margin-bottom: 25px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .detail-card {
             background: #ffffff;
-            border-radius: 14px;
-            padding: 12px 20px;
+            border-radius: 16px;
+            padding: 14px 20px;
             display: flex;
             align-items: center;
-            border: 1px solid rgba(188, 161, 127, 0.2);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(197, 168, 128, 0.25);
+            box-shadow: 0 10px 25px rgba(197, 168, 128, 0.06);
             text-align: right;
+            transition: transform 0.3s ease;
         }
 
         .detail-icon {
-            font-size: 1.5rem;
-            margin-left: 15px;
-            background: rgba(188, 161, 127, 0.12);
-            width: 42px;
-            height: 42px;
+            font-size: 1.4rem;
+            margin-left: 16px;
+            background: linear-gradient(135deg, var(--gold-light), rgba(197,168,128,0.25));
+            width: 44px;
+            height: 44px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 10px;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 5px rgba(255,255,255,0.6);
         }
 
         .detail-info {
             display: flex;
             flex-direction: column;
+            flex: 1;
         }
 
         .detail-label {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .detail-value {
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             color: var(--text-dark);
             font-weight: 700;
-            margin-top: 1px;
+            margin-top: 2px;
         }
 
-        /* العداد التنازلي */
+        /* العداد التنازلي العصري والجذاب */
         .countdown-row {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
+            gap: 12px;
+            margin: 20px 0 10px 0;
+            width: 100%;
         }
 
         .time-box {
-            background: #fff;
-            border: 1px solid rgba(188, 161, 127, 0.3);
-            border-radius: 10px;
-            width: 58px;
-            height: 58px;
+            background: #ffffff;
+            border-bottom: 3px solid var(--gold-premium);
+            border-radius: 14px;
+            flex: 1;
+            max-width: 68px;
+            height: 68px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            position: relative;
         }
 
-        .time-num { font-size: 1.15rem; font-weight: 700; color: var(--red-royal); }
-        .time-lab { font-size: 0.65rem; color: var(--text-muted); }
+        .time-num { 
+            font-size: 1.3rem; 
+            font-weight: 900; 
+            color: var(--red-royal);
+            line-height: 1.2;
+        }
+        
+        .time-lab { 
+            font-size: 0.68rem; 
+            color: var(--text-muted); 
+            font-weight: 600;
+            margin-top: 2px;
+        }
 
+        /* زر الخريطة الاحترافي التفاعلي البارز */
         .location-btn {
-            background: linear-gradient(135deg, #9e1b22, #731015);
-            color: #fff;
+            background: linear-gradient(135deg, #911218 0%, #630509 100%);
+            color: #ffffff;
             text-decoration: none;
-            padding: 14px;
+            padding: 16px;
             border-radius: 50px;
             font-weight: 700;
             width: 100%;
-            display: block;
-            margin-top: 15px;
-            box-shadow: 0 10px 20px rgba(158, 27, 34, 0.25);
-            font-size: 0.95rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            box-shadow: 0 12px 30px rgba(145, 18, 24, 0.3);
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+        .location-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 5px 15px rgba(145, 18, 24, 0.4);
+        }
+
+        .footer-verse {
+            margin-top: 30px; 
+            font-family: 'Amiri', serif; 
+            color: var(--gold-dark); 
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        @keyframes pulse-line {
+            0%, 100% { transform: scaleX(1); opacity: 0.5; }
+            50% { transform: scaleX(1.3); opacity: 1; }
         }
     </style>
 </head>
@@ -269,10 +342,12 @@
     <div class="phone-container">
         
         <div class="envelope-overlay" id="envelopePage">
-            <img src="royal-envelope.png" 
-                 class="user-envelope-img" 
-                 alt="الظرف الملكي" 
-                 onclick="openInvitation()">
+            <div class="envelope-tilt-wrapper" id="tiltWrapper">
+                <img src="—Pngtree—red floral embossed envelope for_20888293.png" 
+                     class="user-envelope-img" 
+                     alt="دعوة زفاف ملكية فاخرة" 
+                     onclick="openInvitation()">
+            </div>
             
             <p class="action-click-hint" onclick="openInvitation()">اضغط على الظرف لفتح الدعوة ✨</p>
         </div>
@@ -304,7 +379,7 @@
                     <div class="detail-card">
                         <div class="detail-icon">🕒</div>
                         <div class="detail-info">
-                            <span class="detail-label">وقت الحفل الإستثنائي</span>
+                            <span class="detail-label">وقت الحفل</span>
                             <span class="detail-value">3:00 ظهراً</span>
                         </div>
                     </div>
@@ -312,7 +387,7 @@
                     <div class="detail-card">
                         <div class="detail-icon">📍</div>
                         <div class="detail-info">
-                            <span class="detail-label">مكان الحفل</span>
+                            <span class="detail-label">مكان الحفل والمناسبة</span>
                             <span class="detail-value">مزرعة اورنج</span>
                         </div>
                     </div>
@@ -326,33 +401,49 @@
                 </div>
 
                 <a href="https://maps.app.goo.gl/DP1GcG593mm2YLJH8?g_st=ic" target="_blank" class="location-btn">
-                    📍 موقع القاعة عبر خرائط Google
+                    <span>📍 موقع القاعة عبر خرائط Google</span>
                 </a>
                 
-                <p style="margin-top: 25px; font-family: 'Amiri'; color: var(--gold-premium); font-size: 1.1rem;">دامت دياركم بالأفراح عامرة</p>
+                <p class="footer-verse">دامت دياركم بالأفراح عامرة</p>
             </div>
         </div>
 
     </div>
 
     <script>
+        // تأثير حركي ذكي لتفاعل الظرف مع اللمس أو تحريك الماوس للإحساس بالواقعية وثلاثية الأبعاد
+        const container = document.getElementById('envelopePage');
+        const wrapper = document.getElementById('tiltWrapper');
+        
+        container.addEventListener('mousemove', (e) => {
+            let xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+            let yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+            wrapper.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            wrapper.style.transform = `rotateY(0deg) rotateX(0deg)`;
+        });
+
+        // فتح الدعوة وإطلاق قصاصات الورق الملونة الفاخرة
         function openInvitation() {
             document.getElementById('envelopePage').classList.add('hide-envelope');
             
+            // تأثير Confetti الفخم
             confetti({
-                particleCount: 140,
-                spread: 65,
+                particleCount: 160,
+                spread: 80,
                 origin: { y: 0.65 },
-                colors: ['#9e1b22', '#bca17f', '#ffffff']
+                colors: ['#911218', '#c5a880', '#ffffff', '#eadecc']
             });
         }
 
-        // العداد التنازلي الحقيقي
-        const target = new Date("May 22, 2026 15:00:00").getTime();
+        // العداد التنازلي الحقيقي للوقت الدقيق والمطلوب
+        const targetDate = new Date("May 22, 2026 15:00:00").getTime();
 
         setInterval(function() {
             const now = new Date().getTime();
-            const diff = target - now;
+            const diff = targetDate - now;
 
             const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
             const hours = Math.max(0, Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
